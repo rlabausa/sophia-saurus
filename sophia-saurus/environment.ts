@@ -1,3 +1,3 @@
 export const environment = {
-    GOOGLE_CLIENT_ID: '<CLIENT-ID>'
+    apiHost: 'http://localhost:4200',
 };
