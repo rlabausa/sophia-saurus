@@ -3,9 +3,9 @@ import { AuthToken } from "./authtoken.model";
 export class User {
     private name: string;
     private email: string;
-    private token: AuthToken;
+    private token: string;
 
-    public constructor(name: string, email: string, token: AuthToken) {
+    public constructor(name: string, email: string, token: string) {
         this.name = name;
         this.email = email;
         this.token = token;
@@ -19,7 +19,7 @@ export class User {
         return this.email;
     }
 
-    public getToken(): AuthToken {
+    public getToken(): string {
         return this.token;
     }
 }

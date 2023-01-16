@@ -46,7 +46,6 @@ export class AppComponent implements OnInit {
   }
 
   handleCredentialResponse(response: any) {
-    console.log(response)
     const jwt = response.credential;
     const jwtArray = jwt.split('.');
 
@@ -56,14 +55,14 @@ export class AppComponent implements OnInit {
     const token = JSON.parse(payload);
 
     if (token.email_verified) {
-      console.log(token);
-
       // hide button when authenticated
       document.getElementById(this.SIGN_IN_BUTTON_ID)?.setAttribute('hidden', 'hidden');
 
       // pass user data to the application
-      const user = new User(token.name, token.email, token.AuthToken);
+      const user = new User(token.name, token.email, jwt);
       this.authSvc.currentUser$.next(user); 
+
+      console.log(user);
     }
   }
 
